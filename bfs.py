@@ -120,3 +120,34 @@ class Grafo:
                     cola.put(siguiente_nodo)
                     #Añade a la lista de nodos visitados el siguiente nodo
                     visitado.add(siguiente_nodo)
+
+#Función Main de la clase
+if __name__ == "__main__":
+
+
+    # Crear una instancia de la clase `Grafo`.
+    # Este grafo es no dirigido y tiene 5 nodos
+    g = Grafo(5, dirigido=False)
+
+    # Añáde las aristas (0,1) con peso=1
+    g.agregar_arista(0, 1)
+    # Añáde las aristas (0,2) con peso=1
+    g.agregar_arista(0, 2)
+    # Añáde las aristas (1,2) con peso=1
+    g.agregar_arista(1, 2)
+    # Añáde las aristas (1,4) con peso=1
+    g.agregar_arista(1, 4)
+    # Añáde las aristas (2,3) con peso=1
+    g.agregar_arista(2, 3)
+
+# Imprime la lista de adyacencia
+    g.imprimir_lista_adyacencia()
+
+    print ("Lo siguiente es la primera travesía de la amplitud"
+                    " (a partir del vértice 0)")
+    #Imprime la lsita de las colas visitadas
+    g.bfs_traversal(0)
+    print()
+    
+    #Imprime la documentanción
+    help(Grafo)
