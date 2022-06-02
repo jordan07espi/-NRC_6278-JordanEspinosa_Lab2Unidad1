@@ -77,3 +77,11 @@ class Grafo:
             #Añade una arista al nodo 2 para la lista del grafo
             self.m_lista_adyacencia[nodo2].add((nodo1, peso))
     
+    # Imprime la representación del grafo
+    def imprimir_lista_adyacencia(self):
+        '''Imprime la lista de adyacencia'''
+        #Recorrido en la lista de adyacencia
+        for llave in self.m_lista_adyacencia.keys():
+            #Imprime los nodos que estan en la lista de adyacencia
+            print("nodo", llave, ": ", self.m_lista_adyacencia[llave])
+
