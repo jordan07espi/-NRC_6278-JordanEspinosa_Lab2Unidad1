@@ -85,3 +85,38 @@ class Grafo:
             #Imprime los nodos que estan en la lista de adyacencia
             print("nodo", llave, ": ", self.m_lista_adyacencia[llave])
 
+    # Función que imprime el recorrido BFS
+    def bfs_traversal(self, inicio_nodo):
+        """
+        Realiza el recorrido del grafo generando unas colas y listas de
+        los nodos que visitó.
+        
+        Parámetros:
+        ------------
+        inicio_nodo : int
+            Nodo de inicio del recorrido
+        """
+        # Conjunto de nodos visitados para evitar bucles
+        visitado = set()#Inicializa lista de nodos visitados
+        cola = Queue()#Inicializa cola del grafo
+
+        # Añade el nodo de inicio a la cola 
+        cola.put(inicio_nodo)
+        #Añade el nodo inicial a la lista de visitados
+        visitado.add(inicio_nodo)
+
+        #Se encuentra en un bucle siempre y cuando no este vacía la cola
+        while not cola.empty():
+            # Quita el primer nodo de la cola
+            actual_nodo = cola.get()
+            # Imprime el nodo actual
+            print(actual_nodo, end = " ")
+
+            #Recorre toda la lista adyacencia del nodo actual
+            for (siguiente_nodo, peso) in self.m_lista_adyacencia[actual_nodo]:
+                #Si el nodo no fue visitado agrega nodos a la cola y a la lista de visitados
+                if siguiente_nodo not in visitado:
+                    #Añade a la cola el siguiente nodo
+                    cola.put(siguiente_nodo)
+                    #Añade a la lista de nodos visitados el siguiente nodo
+                    visitado.add(siguiente_nodo)
